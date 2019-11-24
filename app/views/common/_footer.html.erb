@@ -1,0 +1,31 @@
+
+<footer>
+<div class="card text-center">
+  <div class="card-header">
+    
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Copyright ©2017 RoR</h5>
+    <p class="card-text">Design by 
+    <a id="my-toggle-click"  href="https://www.linkedin.com/in/finn-wang-870b67185/" target=_new>Fei</a> 
+    </p>
+    
+    <a id="foo1" style="border: 1px solid red;"> I love Ruby on Rails </a>
+    <br>
+    <a href="https://www.google.com/" target=_new, class="btn btn-primary">Go for more</a>
+  </div>
+  <div class="card-footer text-muted">
+  
+  </div>
+</div>
+</footer>
+
+
+<script>
+  $("#foo1").hide();   // 先马上藏起来
+
+  $("#my-toggle-click").hover(function(){
+    $("#foo1").toggle();   // 移过去会有开关的效果
+  })
+
+</script>

@@ -1,0 +1,65 @@
+<div class="center jumbotron text-center">
+<h1>Calculator for Parking Fee</h1>
+
+<%= form_for @parking do |f| %>
+  <% if @parking.errors.any? %>
+  <ul>
+    <% @parking.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+      
+
+
+  
+  <% if current_user %>
+  
+     <label>
+       
+     </label>
+     
+     <label>
+       <%= f.radio_button :parking_type, "short-term", :checked => "checked" %> short-term
+     </label>
+ 
+     <label>
+       <%= f.radio_button :parking_type, "long-term" %> short-term
+     </label>
+ 
+   <% else %>
+     As Guest
+   <% end %>
+
+  <p><%= f.submit "Start to count" %>  <a id="my-click">   Price List </a> 
+  
+  </p>
+<% end %>
+
+  <div id="foo" style="border: 1px solid red;">
+    <a id="my-hide-click">Hide</a>
+    <p> As a Guest: $ 2 / hour </p>
+    <br>
+    <p> As a Member: short-term (less than 24 hours) $ 2 / hour for the first hour then $ 1 / hour </p>
+  
+    <p> and long-term (more than 1 day) is $ 24 for the first day then $ 10 / day <p>
+    
+  </div>
+
+</div>
+
+<%= link_to image_tag("parking-sign.jpg", alt: "parking sign" ) %> 
+<%= link_to image_tag("DC.jpg", alt: "DC parking sign", size: "500x350" ) %> 
+
+<script>
+  $("#foo").hide();
+
+  $("#my-click").click(function(){
+    $("#foo").show();
+  })
+
+  $("#my-hide-click").click(function(){
+    $("#foo").hide();
+  })
+</script>

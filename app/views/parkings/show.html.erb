@@ -1,0 +1,29 @@
+<div class="center jumbotron text-center">
+<h1>Calculator for Parking Fee</h1>
+
+<% if @parking.amount.present? # 已经结束，显示停车费 %>
+  <p>Type: <%= @parking.parking_type %></p>
+
+
+  <p>From <%= @parking.start_at %> to <%= @parking.end_at %><p>
+  <p>It's <%= @parking.duration %> min  |
+  Fee: <%= number_to_currency(@parking.amount.to_f / 100, :unit => "$") %> USD
+  </p>
+
+  <p><%= link_to "Continue", new_parking_path %></p>
+
+<% else # 还没结束，显示结束按钮 %>
+
+  <%= form_for @parking do |f| %>
+
+    <p><%= f.submit "Finish" %></p>
+
+  <% end %>
+
+<% end %>
+
+
+<%= link_to image_tag("backedintoparking-1a.jpg", alt: "parking lot", :size => "400x300")  %>
+
+</div>
+
